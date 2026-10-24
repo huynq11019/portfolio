@@ -154,6 +154,8 @@ const githubUrl = 'https://github.com/huynq11019';
     const tooltip = document.getElementById('copy-tooltip');
 
     if (!copyBtn || !copyBtnText || !copyIcon || !checkIcon) return;
+    if (copyBtn.dataset.bound) return;
+    copyBtn.dataset.bound = 'true';
 
     let resetTimeout: number | undefined;
 

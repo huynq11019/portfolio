@@ -1,6 +1,6 @@
-# Huy NQ — Senior Software Engineer & Engineering Leader Portfolio
+# Huy NQ — Backend & Full-Stack Software Engineer Portfolio
 
-Personal portfolio website for **Nguyen Quang Huy (Huy NQ)**, showcasing 7+ years of engineering leadership, scalable backend architectures, distributed systems, and team leadership across tier-1 technology organizations (Tiki, Trusting Social, VNPay, GIMO).
+Personal portfolio website for **Nguyen Quang Huy (Huy NQ)**, showcasing scalable backend architectures, distributed systems, RESTful APIs with Java & Spring Boot, and modern cross-platform solutions (Angular, TypeScript, Flutter).
 
 Live Demo / Production: [https://huynq.is-a.dev](https://huynq.is-a.dev) or [https://huynq11019.github.io](https://huynq11019.github.io)
 
@@ -8,11 +8,12 @@ Live Demo / Production: [https://huynq.is-a.dev](https://huynq.is-a.dev) or [htt
 
 ## 🚀 Tech Stack Highlights
 
-- **Framework**: [Astro 4](https://astro.build/) — Fast, zero-JS by default static site generator.
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) — Utility-first styling with customized editorial aesthetic, warm dark palette, and fluid typography.
-- **Design Philosophy**: Crafted with [Taste-Skill](https://github.com/taste-skill) principles — editorial dark theme (`#090A0F`), subtle borders (`#1F2437`), gold/amber high-contrast accents (`#F59E0B`), serif display headings (`Newsreader`), and clean monospace accents (`JetBrains Mono`).
-- **Icons**: [Lucide Icons](https://lucide.dev/) for crisp, scalable UI iconography.
-- **Deployment**: Automated GitHub Pages deployment via GitHub Actions.
+- **Framework**: [Astro v4](https://astro.build/) — Lightning fast, zero-JS by default static site generator.
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) — Customized dark tech palette (`#080C14`), glassmorphic panels, and neon glow hover states.
+- **Typography & Art Direction**: Crafted with [Taste-Skill](https://github.com/leonxlnx/taste-skill) principles — Swiss neo-grotesk typography ([Switzer](https://www.fontshare.com/fonts/switzer)), ambient 60–120 FPS cursor spotlight, and interactive typewriter keywords.
+- **Featured Projects**: Real open-source repositories from `@huynq11019` (`conversion-plf`, `P2P-Chat-App`, `pose-guide`).
+- **Icons**: Clean, inline accessible SVGs (0 kB external dependency footprint).
+- **Deployment**: Automated GitHub Pages deployment via GitHub Actions (`.github/workflows/deploy.yml`).
 
 ---
 
@@ -86,9 +87,9 @@ This portfolio includes a pre-configured GitHub Actions workflow (`.github/workf
    - Under **Build and deployment** > **Source**, select **GitHub Actions**.
    - The workflow `Deploy to GitHub Pages` will trigger and publish the website.
 
-4. **Custom Domain (Optional / Configured for `huynq.is-a.dev`)**:
-   - A custom domain can be configured under **Settings** > **Pages** > **Custom domain** with `huynq.is-a.dev`.
-   - Ensure the CNAME / DNS records point to `huynq11019.github.io`.
+4. **Custom Domain (`huynq.is-a.dev`)**:
+   - Handled automatically via `public/CNAME` containing `huynq.is-a.dev`.
+   - Connected via the pull request to `is-a-dev/register`.
 
 ---
 
