@@ -1,6 +1,27 @@
 ---
-// Projects.astro - Featured Open Source & Production Engineering Projects for Huy NQ
-interface Project {
+// Projects.astro - Enterprise Banking Solutions & Open Source Engineering Projects for Huy NQ
+
+interface EnterpriseProject {
+  id: string;
+  title: string;
+  subtitle: string;
+  client: string;
+  clientType: 'Fintech' | 'Ngân hàng' | 'Bất động sản / Quản lý tài sản' | 'Viễn thông';
+  clientBadgeColor: string;
+  period: string;
+  role: string;
+  teamSize: string;
+  domainBadge: string;
+  badgeColor: string;
+  accentGradient: string;
+  borderHover: string;
+  description: string;
+  highlights: string[];
+  architectureHighlights: { label: string; value: string }[];
+  techStack: string[];
+}
+
+interface OpenSourceProject {
   title: string;
   repoName: string;
   category: string;
@@ -9,11 +30,169 @@ interface Project {
   highlights: string[];
   techStack: string[];
   githubUrl: string;
-  stars?: string;
-  stats?: { label: string; value: string }[];
+  stats: { label: string; value: string }[];
 }
 
-const projects: Project[] = [
+const enterpriseProjects: EnterpriseProject[] = [
+  {
+    id: 'tikop',
+    title: 'Tikop – Đầu tư tích luỹ',
+    subtitle: 'Nền tảng Tài chính số & Tích lũy Thông minh',
+    client: 'Sản phẩm Fintech',
+    clientType: 'Fintech',
+    clientBadgeColor: 'text-amber-400 bg-amber-400/[0.08] border-amber-400/20',
+    period: '06/2024 - Hiện tại',
+    role: 'Full-Stack Developer',
+    teamSize: 'Fintech Core Team',
+    domainBadge: 'Fintech Core & eKYC',
+    badgeColor: 'text-amber-400 bg-amber-400/[0.08] border-amber-400/20',
+    accentGradient: 'from-amber-500/10 via-orange-500/5 to-transparent',
+    borderHover: 'hover:border-amber-500/40',
+    description: 'Hệ thống công nghệ tài chính phục vụ hàng triệu người dùng tích lũy và đầu tư linh hoạt. Chịu trách nhiệm phát triển và bảo trì các module phân hệ bảo mật lõi, tích hợp dòng tiền tự động liên ngân hàng và vận hành hạ tầng vi dịch vụ chịu tải cao.',
+    highlights: [
+      'Phát triển & bảo trì các tính năng Core trọng yếu: Authentication, eKYC định danh sinh trắc học, OTP bảo mật và ký hợp đồng số điện tử (eContract).',
+      'Tích hợp luồng cổng thanh toán thu hộ và chi hộ tự động liên ngân hàng với độ chính xác và tính toàn vẹn giao dịch tuyệt đối.',
+      'Thiết kế kiến trúc hệ thống vi dịch vụ Spring Boot Microservices theo nguyên tắc Domain-Driven Design (DDD) & CQRS, đồng bộ dữ liệu qua Kafka streaming.',
+      'Triển khai giao diện quản trị điều hành tập trung theo kiến trúc Vue 3 Micro-frontend, tự động hóa quy trình với K8s, Jenkins và APIDog.'
+    ],
+    architectureHighlights: [
+      { label: 'Domain Core', value: 'Fintech / eKYC' },
+      { label: 'Event Broker', value: 'Apache Kafka' },
+      { label: 'Architecture', value: 'DDD & CQRS' }
+    ],
+    techStack: [
+      'Java 17',
+      'Spring Boot',
+      'PostgreSQL',
+      'MySQL',
+      'Vue 3 Micro-frontend',
+      'Kafka',
+      'Redis',
+      'Kubernetes',
+      'DDD / CQRS',
+      'APIDog',
+      'Jenkins'
+    ]
+  },
+  {
+    id: 'vib-shareholder',
+    title: 'VIB Smart Shareholder',
+    subtitle: 'Hệ thống Quản lý Đại hội Đồng Cổ đông Ngân hàng VIB',
+    client: 'Ngân hàng Quốc tế VIB',
+    clientType: 'Ngân hàng',
+    clientBadgeColor: 'text-blue-400 bg-blue-400/[0.08] border-blue-400/20',
+    period: '10/2023 - 06/2024',
+    role: 'Team Leader / DevOps / Full-Stack',
+    teamSize: '7 thành viên',
+    domainBadge: 'Banking & High Concurrency',
+    badgeColor: 'text-blue-400 bg-blue-400/[0.08] border-blue-400/20',
+    accentGradient: 'from-blue-500/10 via-cyan-500/5 to-transparent',
+    borderHover: 'hover:border-blue-500/40',
+    description: 'Hệ thống số hóa tổ chức và quản trị đại hội đồng cổ đông trực tuyến cho Ngân hàng Quốc tế VIB. Đảm bảo tính minh bạch biểu quyết điện tử thời gian thực, độ ổn định tuyệt đối trước lưu lượng truy cập đột biến và tuân thủ tiêu chuẩn an toàn ngân hàng.',
+    highlights: [
+      'Lập kế hoạch sprint, phân bổ tác vụ và dẫn dắt đội ngũ 7 kỹ sư (Full-stack, Frontend, QA) bàn giao dự án đúng cam kết.',
+      'Thiết kế kiến trúc Spring Boot Microservices kết hợp Angular 16 Micro-frontend tuân thủ nghiêm ngặt nguyên lý Domain-Driven Design (DDD) và CQRS.',
+      'Xây dựng kịch bản và thực hiện kiểm thử tải cao (Stress & Load Testing) bằng Apache JMeter, xử lý triệt để các nút thắt cổ chai luồng biểu quyết trực tiếp.',
+      'Thiết lập toàn diện hạ tầng container hóa với Docker, Nginx reverse proxy, Message Queue và tự động hóa triển khai trên Kubernetes.'
+    ],
+    architectureHighlights: [
+      { label: 'Load Testing', value: 'Apache JMeter' },
+      { label: 'Micro-frontend', value: 'Angular 16 MFE' },
+      { label: 'DevOps & Deploy', value: 'K8s + Docker' }
+    ],
+    techStack: [
+      'Spring Boot',
+      'Angular 16 MFE',
+      'PostgreSQL',
+      'JMeter',
+      'Kubernetes',
+      'Docker',
+      'Nginx',
+      'Message Queue',
+      'Redis',
+      'DDD / CQRS',
+      'Jenkins'
+    ]
+  },
+  {
+    id: 'mb-amc',
+    title: 'MB-AMC Building Management',
+    subtitle: 'Nền tảng Quản trị & Vận hành Bất động sản Ngân hàng MB',
+    client: 'Khách hàng MB-AMC',
+    clientType: 'Bất động sản / Quản lý tài sản',
+    clientBadgeColor: 'text-purple-400 bg-purple-400/[0.08] border-purple-400/20',
+    period: '10/2021 - 10/2023',
+    role: 'Front-End Leader / Full-Stack Developer',
+    teamSize: '30 thành viên',
+    domainBadge: 'Enterprise Asset Management',
+    badgeColor: 'text-purple-400 bg-purple-400/[0.08] border-purple-400/20',
+    accentGradient: 'from-purple-500/10 via-indigo-500/5 to-transparent',
+    borderHover: 'hover:border-purple-500/40',
+    description: 'Hệ sinh thái số hóa quản lý tài sản nợ, hợp đồng và vận hành chuỗi tòa nhà tập trung quy mô lớn của Công ty Quản lý Nợ & Khai thác Tài sản Ngân hàng Quân Đội (MB-AMC).',
+    highlights: [
+      'Đảm nhiệm vai trò Front-End Leader dẫn dắt chuẩn kiến trúc giao diện cho dự án quy mô enterprise lớn với 30 thành viên.',
+      'Xây dựng các phân hệ quản lý tài sản, hợp đồng thuê và dòng tiền vận hành tòa nhà phức hợp trên nền tảng Angular hiện đại.',
+      'Tối ưu các dịch vụ Spring Boot kết nối Oracle Database hiệu năng cao, phân rã nghiệp vụ DDD/CQRS để xử lý tập dữ liệu lớn mượt mà.',
+      'Chuẩn hóa quy trình code review, kiểm thử tích hợp và đóng gói container điều phối triển khai ổn định qua Kubernetes và Nginx.'
+    ],
+    architectureHighlights: [
+      { label: 'Team Size', value: '30 Thành viên' },
+      { label: 'Enterprise DB', value: 'Oracle Database' },
+      { label: 'Leadership', value: 'Front-End Leader' }
+    ],
+    techStack: [
+      'Spring Boot',
+      'Oracle Database',
+      'Angular',
+      'Kubernetes',
+      'Docker',
+      'Nginx',
+      'Message Queue',
+      'Redis',
+      'DDD / CQRS',
+      'Jenkins'
+    ]
+  },
+  {
+    id: 'mytel-pay',
+    title: 'Mytel Pay Adaptor',
+    subtitle: 'Cổng Thích ứng Giao dịch & Ví điện tử Viễn thông',
+    client: 'Khách hàng Viettel Software',
+    clientType: 'Viễn thông',
+    clientBadgeColor: 'text-emerald-400 bg-emerald-400/[0.08] border-emerald-400/20',
+    period: '06/2022 - 09/2022',
+    role: 'Back-End Developer',
+    teamSize: '10 thành viên',
+    domainBadge: 'Telecom Payment Gateway',
+    badgeColor: 'text-emerald-400 bg-emerald-400/[0.08] border-emerald-400/20',
+    accentGradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
+    borderHover: 'hover:border-emerald-500/40',
+    description: 'Dịch vụ backend chuyên trách thích ứng và chuyển đổi các giao thức thanh toán cho mạng viễn thông quốc tế Mytel (Viettel Software), kết nối trơn tru giữa hệ thống thanh toán viễn thông và ví điện tử.',
+    highlights: [
+      'Phát triển các module thích ứng giao dịch Spring Boot kết nối an toàn với cơ sở dữ liệu doanh nghiệp Oracle Database.',
+      'Ứng dụng Message Queue phân tán và Redis caching đảm bảo tính nhất quán thứ tự giao dịch, phòng chống nghẽn và duy trì độ sẵn sàng cao.',
+      'Nghiên cứu công nghệ thích ứng mới theo đặc thù hạ tầng đối tác viễn thông, kiểm tra chất lượng và review code theo chuẩn kiến trúc.',
+      'Đóng gói container Docker và tự động hóa quy trình triển khai ổn định trên cụm Kubernetes.'
+    ],
+    architectureHighlights: [
+      { label: 'Domain lõi', value: 'Telecom Payment' },
+      { label: 'Độ khả dụng', value: 'Message Queue & Redis' },
+      { label: 'Hạ tầng', value: 'Docker & Kubernetes' }
+    ],
+    techStack: [
+      'Spring Boot',
+      'Oracle Database',
+      'Message Queue',
+      'Redis',
+      'Kubernetes',
+      'Docker',
+      'Jenkins',
+      'RESTful APIs'
+    ]
+  }
+];
+
+const openSourceProjects: OpenSourceProject[] = [
   {
     title: 'Conversion Platform',
     repoName: 'conversion-plf',
@@ -76,121 +255,273 @@ const projects: Project[] = [
 
 <section id="projects" class="py-20 md:py-28 relative overflow-hidden">
   <!-- Ambient background glow behind projects -->
-  <div class="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 w-[550px] h-[550px] bg-indigo-600/[0.04] rounded-full blur-[150px]" aria-hidden="true"></div>
-  <div class="pointer-events-none absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-blue-600/[0.04] rounded-full blur-[130px]" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute top-1/4 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/[0.04] rounded-full blur-[160px]" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-indigo-600/[0.04] rounded-full blur-[150px]" aria-hidden="true"></div>
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Section Header -->
-    <div class="flex flex-col items-center text-center mb-16">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-500/20 bg-indigo-500/[0.06] text-indigo-400 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm shadow-indigo-500/10">
-        <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+    <!-- Main Section Header -->
+    <div class="flex flex-col items-center text-center mb-16 sm:mb-20">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/[0.06] text-blue-400 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm shadow-blue-500/10">
+        <svg class="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
         </svg>
-        <span>Featured Engineering Work</span>
+        <span>Featured Engineering &amp; Solutions</span>
       </div>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-        Dự án tiêu biểu &amp; Mã nguồn mở
+        Dự án &amp; Giải pháp Kỹ thuật
       </h2>
       <p class="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
-        Các giải pháp phần mềm thực chiến, dịch vụ backend và ứng dụng di động được nghiên cứu và hiện thực hóa bởi Huy NQ.
+        Tổng hợp các giải pháp phân tán cấp Doanh nghiệp trong lĩnh vực Ngân hàng, Fintech, Viễn thông cùng các dự án Mã nguồn mở thực nghiệm của Nguyễn Quang Huy.
       </p>
     </div>
 
-    <!-- Projects Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {projects.map((project, idx) => (
-        <div class="glass-panel glow-hover group relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 border border-white/[0.08] hover:border-blue-500/40 bg-[#0b101c]/85 hover:-translate-y-1">
-          <!-- Ambient gradient corner -->
-          <div class="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-500/10 via-indigo-500/5 to-transparent rounded-tr-2xl pointer-events-none group-hover:from-blue-500/20 transition-all duration-500"></div>
+    <!-- ========================================== -->
+    <!-- SECTION 1: ENTERPRISE & BANKING SOLUTIONS  -->
+    <!-- ========================================== -->
+    <div class="mb-20 sm:mb-24">
+      <!-- Section 1 Sub-header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-white/[0.06]">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-400 mb-2">
+            <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.333A48.604 48.604 0 0012 9.75c-2.551 0-5.056.2-7.5.583V21h15z" />
+            </svg>
+            <span>Enterprise &amp; Banking Solutions</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Dự án Doanh nghiệp tiêu biểu
+          </h3>
+        </div>
+        <p class="text-sm text-slate-400 max-w-md">
+          Các hệ thống vi dịch vụ phân tán chịu tải lớn, tuân thủ nguyên tắc Domain-Driven Design (DDD/CQRS) và tiêu chuẩn an toàn thông tin khắt khe.
+        </p>
+      </div>
 
-          <div>
-            <!-- Header bar inside card: Category & GitHub Icon Link -->
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-medium text-cyan-400 bg-cyan-400/[0.08] border border-cyan-400/20">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                {project.badge}
-              </span>
+      <!-- Enterprise Projects Grid (2x2) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {enterpriseProjects.map((project) => (
+          <div class={`glass-panel glow-hover group relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 border border-white/[0.08] ${project.borderHover} bg-[#0b101c]/80 hover:-translate-y-1`}>
+            <!-- Ambient gradient corner -->
+            <div class={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl ${project.accentGradient} rounded-tr-2xl pointer-events-none group-hover:scale-110 transition-transform duration-500`}></div>
+
+            <div>
+              <!-- Top Badges Row -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono font-medium ${project.clientBadgeColor}`}>
+                    <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
+                    {project.client}
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono font-medium text-slate-300 bg-white/[0.04] border border-white/[0.08]">
+                    {project.domainBadge}
+                  </span>
+                </div>
+                <div class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 bg-white/[0.02] px-2.5 py-1 rounded-md border border-white/[0.05]">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+                  </svg>
+                  <span>{project.period}</span>
+                </div>
+              </div>
+
+              <!-- Project Title & Subtitle -->
+              <h4 class="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors mb-1">
+                {project.title}
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mb-4">{project.subtitle}</p>
+
+              <!-- Role & Team Size Strip -->
+              <div class="flex flex-wrap items-center gap-3 py-2 px-3 rounded-lg bg-white/[0.02] border border-white/[0.05] mb-5 text-xs">
+                <div class="flex items-center gap-1.5 text-slate-300">
+                  <svg class="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+                  <span class="text-slate-400">Vai trò:</span>
+                  <span class="font-semibold text-white">{project.role}</span>
+                </div>
+                <span class="text-white/[0.15] hidden sm:inline">•</span>
+                <div class="flex items-center gap-1.5 text-slate-300">
+                  <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                  </svg>
+                  <span class="text-slate-400">Quy mô:</span>
+                  <span class="font-semibold text-cyan-300">{project.teamSize}</span>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <p class="text-sm text-slate-300/90 leading-relaxed mb-5 font-normal">
+                {project.description}
+              </p>
+
+              <!-- Key Feature Bullet Points -->
+              <div class="space-y-2.5 mb-6">
+                {project.highlights.map((item) => (
+                  <div class="flex items-start gap-2.5 text-xs text-slate-300/90 leading-relaxed">
+                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Architecture Highlights Bar -->
+              {project.architectureHighlights && (
+                <div class="grid grid-cols-3 gap-2 py-2.5 px-3 rounded-xl bg-white/[0.02] border border-white/[0.05] mb-6 font-mono text-center">
+                  {project.architectureHighlights.map((stat) => (
+                    <div class="flex flex-col">
+                      <span class="text-[10px] text-slate-500 uppercase tracking-wider">{stat.label}</span>
+                      <span class="text-xs font-semibold text-slate-200 mt-0.5">{stat.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <!-- Bottom Footer: Tech Stack Pills & Enterprise Deployment Tag -->
+            <div class="pt-4 border-t border-white/[0.06] space-y-3">
+              <div class="flex flex-wrap gap-1.5">
+                {project.techStack.map((tech) => (
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06] group-hover:border-white/[0.1] transition-colors">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1 font-mono">
+                <span class="inline-flex items-center gap-1.5 text-slate-400">
+                  <svg class="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                  </svg>
+                  <span>Enterprise Banking Solution</span>
+                </span>
+                <span class="text-slate-500 text-[10px] uppercase tracking-wider">Production Verified</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: OPEN SOURCE & RESEARCH LAB      -->
+    <!-- ========================================== -->
+    <div>
+      <!-- Section 2 Sub-header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-white/[0.06]">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 mb-2">
+            <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+            </svg>
+            <span>Open Source &amp; Research</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Nghiên cứu Công nghệ &amp; Mã nguồn mở
+          </h3>
+        </div>
+        <p class="text-sm text-slate-400 max-w-md">
+          Các dự án cá nhân và sản phẩm thực nghiệm công nghệ độc lập được xây dựng, kiểm thử và chia sẻ công khai trên GitHub.
+        </p>
+      </div>
+
+      <!-- Open Source Projects Grid (3 Cards) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {openSourceProjects.map((project) => (
+          <div class="glass-panel glow-hover group relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 border border-white/[0.08] hover:border-cyan-500/40 bg-[#0b101c]/80 hover:-translate-y-1">
+            <!-- Ambient gradient corner -->
+            <div class="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-cyan-500/10 via-blue-500/5 to-transparent rounded-tr-2xl pointer-events-none group-hover:from-cyan-500/20 transition-all duration-500"></div>
+
+            <div>
+              <!-- Header bar inside card: Category & GitHub Icon Link -->
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-medium text-cyan-400 bg-cyan-400/[0.08] border border-cyan-400/20">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                  {project.badge}
+                </span>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="p-2 rounded-lg text-slate-400 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] hover:border-slate-500 transition-colors"
+                  aria-label={`GitHub repository for ${project.title}`}
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Title & Subcategory -->
+              <h4 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-1">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="hover:underline underline-offset-4 focus:outline-none">
+                  {project.title}
+                </a>
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mb-4">{project.category}</p>
+
+              <!-- Description -->
+              <p class="text-sm text-slate-300/90 leading-relaxed mb-6 font-normal">
+                {project.description}
+              </p>
+
+              <!-- Key Feature Bullet Points -->
+              <div class="space-y-2 mb-6">
+                {project.highlights.map((item) => (
+                  <div class="flex items-start gap-2 text-xs text-slate-400 leading-snug">
+                    <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Architecture / Performance Stats -->
+              {project.stats && (
+                <div class="grid grid-cols-3 gap-2 py-3 px-3 rounded-xl bg-white/[0.02] border border-white/[0.05] mb-6 font-mono text-center">
+                  {project.stats.map((stat) => (
+                    <div class="flex flex-col">
+                      <span class="text-[10px] text-slate-500 uppercase tracking-wider">{stat.label}</span>
+                      <span class="text-xs font-semibold text-slate-200 mt-0.5">{stat.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <!-- Bottom Footer: Tech Stack Pills & GitHub CTA Button -->
+            <div class="pt-4 border-t border-white/[0.06] space-y-4">
+              <!-- Tech Pills -->
+              <div class="flex flex-wrap gap-1.5">
+                {project.techStack.map((tech) => (
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06] group-hover:border-white/[0.1] transition-colors">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Action Button -->
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2 rounded-lg text-slate-400 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] hover:border-slate-500 transition-colors"
-                aria-label={`GitHub repository for ${project.title}`}
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-200 bg-white/[0.04] hover:bg-cyan-600 hover:text-white border border-white/[0.08] hover:border-transparent transition-all duration-200 shadow-sm group-hover:shadow-cyan-500/20"
               >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                <span>Xem mã nguồn trên GitHub</span>
+                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
             </div>
-
-            <!-- Title & Subcategory -->
-            <h3 class="text-xl font-bold text-white group-hover:text-blue-300 transition-colors mb-1">
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="hover:underline underline-offset-4 focus:outline-none">
-                {project.title}
-              </a>
-            </h3>
-            <p class="text-xs font-mono text-slate-400 mb-4">{project.category}</p>
-
-            <!-- Description -->
-            <p class="text-sm text-slate-300/90 leading-relaxed mb-6 font-normal">
-              {project.description}
-            </p>
-
-            <!-- Key Feature Bullet Points -->
-            <div class="space-y-2 mb-6">
-              {project.highlights.map((item) => (
-                <div class="flex items-start gap-2 text-xs text-slate-400 leading-snug">
-                  <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <!-- Architecture / Performance Stats -->
-            {project.stats && (
-              <div class="grid grid-cols-3 gap-2 py-3 px-3 rounded-xl bg-white/[0.02] border border-white/[0.05] mb-6 font-mono text-center">
-                {project.stats.map((stat) => (
-                  <div class="flex flex-col">
-                    <span class="text-[10px] text-slate-500 uppercase tracking-wider">{stat.label}</span>
-                    <span class="text-xs font-semibold text-slate-200 mt-0.5">{stat.value}</span>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
-
-          <!-- Bottom Footer: Tech Stack Pills & GitHub CTA Button -->
-          <div class="pt-4 border-t border-white/[0.06] space-y-4">
-            <!-- Tech Pills -->
-            <div class="flex flex-wrap gap-1.5">
-              {project.techStack.map((tech) => (
-                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06] group-hover:border-white/[0.1] transition-colors">
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <!-- Action Button -->
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-200 bg-white/[0.04] hover:bg-blue-600 hover:text-white border border-white/[0.08] hover:border-transparent transition-all duration-200 shadow-sm group-hover:shadow-blue-500/20"
-            >
-              <span>Xem mã nguồn trên GitHub</span>
-              <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
     <!-- Callout to full GitHub Profile -->
-    <div class="mt-14 text-center">
+    <div class="mt-16 text-center">
       <div class="inline-flex flex-col sm:flex-row items-center gap-3 px-6 py-3.5 rounded-2xl glass-panel border border-white/[0.08] bg-[#0b101c]/70 text-slate-300 text-sm">
         <span class="flex items-center gap-2">
           <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
