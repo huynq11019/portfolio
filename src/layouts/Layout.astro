@@ -49,34 +49,6 @@ const siteName = 'Huy NQ Portfolio';
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#080c14" />
-
-    <!-- Subpath Asset Adapter for https://huynq11019.github.io/portfolio/ -->
-    <script is:inline>
-      (function() {
-        if (window.location.pathname.startsWith('/portfolio')) {
-          var links = document.querySelectorAll('link[rel="stylesheet"]');
-          links.forEach(function(l) {
-            var href = l.getAttribute('href');
-            if (href && href.startsWith('/_astro/')) {
-              var newLink = document.createElement('link');
-              newLink.rel = 'stylesheet';
-              newLink.href = '/portfolio' + href;
-              document.head.appendChild(newLink);
-            }
-          });
-          var scripts = document.querySelectorAll('script[type="module"]');
-          scripts.forEach(function(s) {
-            var src = s.getAttribute('src');
-            if (src && src.startsWith('/_astro/')) {
-              var newScript = document.createElement('script');
-              newScript.type = 'module';
-              newScript.src = '/portfolio' + src;
-              document.head.appendChild(newScript);
-            }
-          });
-        }
-      })();
-    </script>
   </head>
   <body class="min-h-screen bg-[#080c14] text-slate-100 antialiased selection:bg-blue-500/30 selection:text-white flex flex-col justify-between relative overflow-x-hidden">
     <!-- Header Navigation -->
