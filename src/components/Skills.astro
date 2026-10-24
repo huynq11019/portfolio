@@ -5,64 +5,90 @@ interface SkillCategory {
   icon: string;
   gradient: string;
   borderHover: string;
+  titleHover: string;
+  dotColor: string;
+  pillHover: string;
   description: string;
   skills: { name: string; focus: string; tag?: string }[];
 }
 
 const skillCategories: SkillCategory[] = [
   {
-    title: 'Backend Architecture',
+    title: 'Backend Architecture & High Performance',
     icon: 'server',
     gradient: 'from-blue-500/10 via-indigo-500/5 to-transparent',
     borderHover: 'group-hover:border-blue-500/40',
-    description: 'Thiết kế kiến trúc hướng dịch vụ, API hiệu năng cao và giải pháp backend an toàn, chuẩn mở rộng.',
+    titleHover: 'group-hover:text-blue-300',
+    dotColor: 'bg-blue-400 shadow-blue-400/50',
+    pillHover: 'hover:border-blue-500/30',
+    description: 'Thiết kế kiến trúc hướng dịch vụ microservices, domain-driven design, phát triển SDK lõi dùng chung và bảo mật định danh eKYC chuẩn enterprise.',
     skills: [
-      { name: 'Java', focus: '17+, Multithreading, OOP', tag: 'Core' },
-      { name: 'Spring Boot', focus: 'REST API, Spring Data, MVC', tag: 'Core' },
-      { name: 'Spring Security', focus: 'JWT, OAuth2, RBAC Auth', tag: 'Security' },
-      { name: 'Hibernate / JPA', focus: 'Query Tuning, ORM, Caching', tag: 'Data' },
-      { name: 'RESTful API', focus: 'OpenAPI, Webhooks, Versioning', tag: 'API' },
-      { name: 'Microservices', focus: 'Event-Driven, Service Architecture', tag: 'Architecture' },
+      { name: 'Java 17+', focus: 'Multithreading, Stream API, OOP, Concurrency', tag: 'Core' },
+      { name: 'Spring Boot', focus: 'REST API, Spring Data JPA, MVC', tag: 'Framework' },
+      { name: 'DDD & CQRS', focus: 'Domain Modeling, Event-Driven Architecture', tag: 'Architecture' },
+      { name: 'Microservices', focus: 'Service Discovery, API Gateway, Resilience', tag: 'System' },
+      { name: 'SDK Development', focus: 'Shared Client SDKs, Internal Core Libs', tag: 'SDK' },
+      { name: 'Spring Security & eKYC', focus: 'JWT, OAuth2, Biometric Verification', tag: 'Security' },
+      { name: 'RESTful APIs', focus: 'OpenAPI, Swagger, Contract-First Design', tag: 'API' },
     ],
   },
   {
-    title: 'Database & Cache',
+    title: 'Databases, Streaming & Data Warehouse',
     icon: 'database',
     gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
     borderHover: 'group-hover:border-emerald-500/40',
-    description: 'Mô hình hóa dữ liệu quan hệ, đánh index tối ưu truy vấn và giải pháp bộ nhớ đệm phân tán độ trễ thấp.',
+    titleHover: 'group-hover:text-emerald-300',
+    dotColor: 'bg-emerald-400 shadow-emerald-400/50',
+    pillHover: 'hover:border-emerald-500/30',
+    description: 'Quản trị cơ sở dữ liệu quan hệ/OLAP quy mô lớn, streaming event thời gian thực, CDC pipeline và hạ tầng StarRocks Data Warehouse cho BI.',
     skills: [
-      { name: 'PostgreSQL', focus: 'Indexing, EXPLAIN, Relations', tag: 'RDBMS' },
-      { name: 'MySQL', focus: 'Schema Design, Transactions, ACID', tag: 'RDBMS' },
-      { name: 'Redis', focus: 'Caching, Pub/Sub, Rate Limiting', tag: 'In-Memory' },
-      { name: 'Database Optimization', focus: 'Slow Query Log, Connection Pool', tag: 'Tuning' },
+      { name: 'PostgreSQL', focus: 'Query Optimization, Indexing, Partitioning', tag: 'RDBMS' },
+      { name: 'MySQL', focus: 'Schema Design, Replication, ACID Transactions', tag: 'RDBMS' },
+      { name: 'Oracle Database', focus: 'Enterprise DB, PL/SQL, High-Volume', tag: 'Enterprise' },
+      { name: 'StarRocks (Data Warehouse / BI)', focus: 'MPP Engine, Sub-second OLAP, Real-time BI', tag: 'OLAP / BI' },
+      { name: 'CDC (Change Data Capture)', focus: 'Real-time Replication, Event Sync Pipeline', tag: 'Pipeline' },
+      { name: 'Apache Kafka', focus: 'Event Streaming, Pub/Sub, High-Throughput', tag: 'Streaming' },
+      { name: 'Redis', focus: 'In-Memory Caching, Distributed Locks, Pub/Sub', tag: 'Cache' },
+      { name: 'RabbitMQ', focus: 'Message Broker, Routing, AMQP Decoupling', tag: 'Queue' },
     ],
   },
   {
-    title: 'Frontend & Mobile',
+    title: 'Modern Frontend & Micro-Frontend',
     icon: 'device',
     gradient: 'from-purple-500/10 via-indigo-500/5 to-transparent',
     borderHover: 'group-hover:border-purple-500/40',
-    description: 'Xây dựng giao diện phản hồi nhanh, kiến trúc component module hóa và trải nghiệm đa nền tảng nhất quán.',
+    titleHover: 'group-hover:text-purple-300',
+    dotColor: 'bg-purple-400 shadow-purple-400/50',
+    pillHover: 'hover:border-purple-500/30',
+    description: 'Kiến trúc micro-frontend module hóa (Vue/Angular), phát triển Single Page Applications hiện đại và giao diện responsive chuẩn UX.',
     skills: [
-      { name: 'TypeScript', focus: 'Type System, Modern ECMAScript', tag: 'Language' },
-      { name: 'Angular', focus: 'Components, RxJS, NgRx, Services', tag: 'Framework' },
-      { name: 'Tailwind CSS', focus: 'Responsive Design, Glassmorphism', tag: 'UI/UX' },
-      { name: 'Flutter & Dart', focus: 'Cross-platform Mobile, State Mgmt', tag: 'Mobile' },
+      { name: 'Micro-frontend Architecture', focus: 'Module Federation, Single-SPA, Sub-apps', tag: 'Architecture' },
+      { name: 'Angular (v16+)', focus: 'Standalone Components, RxJS, NgRx, Services', tag: 'Framework' },
+      { name: 'Vue 3', focus: 'Composition API, Pinia, Single-SPA Console', tag: 'Framework' },
+      { name: 'React', focus: 'Hooks, State Management, Modern UI Components', tag: 'Library' },
+      { name: 'TypeScript', focus: 'Strict Typing, Modern ECMAScript, Interfaces', tag: 'Language' },
+      { name: 'Tailwind CSS', focus: 'Responsive Design, Custom Theme, Design Tokens', tag: 'UI/UX' },
     ],
   },
   {
-    title: 'DevOps & Infrastructure',
+    title: 'DevOps, Cloud & QA Engineering',
     icon: 'cloud',
     gradient: 'from-cyan-500/10 via-blue-500/5 to-transparent',
     borderHover: 'group-hover:border-cyan-500/40',
-    description: 'Đóng gói ứng dụng containerized, tự động hóa quy trình CI/CD và triển khai ổn định trên máy chủ Linux.',
+    titleHover: 'group-hover:text-cyan-300',
+    dotColor: 'bg-cyan-400 shadow-cyan-400/50',
+    pillHover: 'hover:border-cyan-500/30',
+    description: 'Tự động hóa CI/CD Jenkins, điều phối container Kubernetes trên GCP/AWS, kiểm thử tải JMeter và bảo đảm chất lượng API toàn diện.',
     skills: [
-      { name: 'Docker', focus: 'Containerization, Multi-stage, Compose', tag: 'Containers' },
-      { name: 'Git & GitHub', focus: 'Git Flow, Semantic Versioning, PRs', tag: 'VCS' },
-      { name: 'GitHub Actions', focus: 'CI/CD Pipelines, Build Automation', tag: 'CI/CD' },
-      { name: 'Linux VPS', focus: 'Ubuntu/Debian, Systemd, Bash Scripting', tag: 'OS' },
-      { name: 'Nginx', focus: 'Reverse Proxy, SSL/TLS, Rate Limit', tag: 'Web Server' },
+      { name: 'Kubernetes (K8S)', focus: 'Cluster Deployments, Ingress, Pod Scaling', tag: 'DevOps' },
+      { name: 'Google Cloud Platform (GCP)', focus: 'Cloud Run, GKE, IAM, Cloud Storage', tag: 'Cloud' },
+      { name: 'AWS Cloud', focus: 'EC2, S3, RDS, Cloud Architecture & Deploy', tag: 'Cloud' },
+      { name: 'Docker', focus: 'Containerization, Multi-stage Builds, Compose', tag: 'Containers' },
+      { name: 'Jenkins CI/CD', focus: 'Automated Pipelines, Build & Deployment', tag: 'CI/CD' },
+      { name: 'JMeter (Load test)', focus: 'Stress Testing, Concurrency, Bottlenecks', tag: 'Testing' },
+      { name: 'Mockito', focus: 'Mocking Framework, Integration Testing, TDD', tag: 'Testing' },
+      { name: 'JUnit', focus: 'Unit Testing, Test Automation, Code Coverage', tag: 'QA' },
+      { name: 'APIDog', focus: 'API Design, Mock Server, Automated Test Suites', tag: 'API Tool' },
     ],
   },
 ];
@@ -96,7 +122,7 @@ const skillCategories: SkillCategory[] = [
           <!-- Top subtle category gradient highlight -->
           <div class={`absolute inset-0 bg-gradient-to-br ${cat.gradient} opacity-50 rounded-2xl pointer-events-none transition-opacity duration-300 group-hover:opacity-100`}></div>
 
-          <div class="relative z-10">
+          <div class="relative z-10 flex flex-col h-full">
             <!-- Category Title & Icon -->
             <div class="flex items-center justify-between gap-4 mb-4">
               <div class="flex items-center gap-3">
@@ -122,7 +148,7 @@ const skillCategories: SkillCategory[] = [
                     </svg>
                   )}
                 </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                <h3 class={`text-xl font-bold text-white ${cat.titleHover} transition-colors`}>
                   {cat.title}
                 </h3>
               </div>
@@ -139,14 +165,14 @@ const skillCategories: SkillCategory[] = [
             <!-- Skill Badges/Pills -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {cat.skills.map((skill) => (
-                <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.05] hover:border-blue-500/30 transition-all duration-200">
+                <div class={`flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.05] ${cat.pillHover} transition-all duration-200`}>
                   <div class="flex items-center gap-2 min-w-0">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0 shadow-sm shadow-blue-400/50"></span>
+                    <span class={`w-1.5 h-1.5 rounded-full shrink-0 shadow-sm ${cat.dotColor}`}></span>
                     <div class="flex flex-col min-w-0">
-                      <span class="text-xs sm:text-sm font-semibold text-slate-200 truncate">
+                      <span class="text-xs sm:text-sm font-semibold text-slate-200 truncate" title={skill.name}>
                         {skill.name}
                       </span>
-                      <span class="text-[10px] text-slate-400 font-mono truncate">
+                      <span class="text-[10px] text-slate-400 font-mono truncate" title={skill.focus}>
                         {skill.focus}
                       </span>
                     </div>
