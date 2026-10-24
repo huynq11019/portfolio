@@ -1,0 +1,379 @@
+---
+// Experience.astro - Career Journey & Timeline Component for Huy NQ Portfolio
+
+interface MetricItem {
+  label: string;
+  value: string;
+}
+
+interface EnterpriseProject {
+  name: string;
+  client: string;
+  role: string;
+  tech: string;
+  impact: string;
+}
+
+interface ExperienceItem {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  badge: string;
+  badgeColor: string;
+  isCurrent?: boolean;
+  type: 'work' | 'education';
+  nodeColor: string;
+  accentGradient: string;
+  borderHover: string;
+  bullets: string[];
+  metrics: MetricItem[];
+  enterpriseProjects?: EnterpriseProject[];
+  techStack: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    id: 'techlab',
+    role: 'Platform-core Engineer',
+    company: 'Công ty Cổ phần Công nghệ Techlab',
+    period: '09/2024 - Hiện tại',
+    location: 'Hà Nội',
+    badge: 'Platform Core & Data',
+    badgeColor: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20 shadow-cyan-500/10',
+    isCurrent: true,
+    type: 'work',
+    nodeColor: 'border-cyan-400 text-cyan-400 shadow-cyan-500/30',
+    accentGradient: 'from-cyan-500/10 via-blue-500/5 to-transparent',
+    borderHover: 'hover:border-cyan-500/40',
+    bullets: [
+      'Phát triển và bảo trì 6 Core Microservices và 3 SDKs tích hợp dịch vụ trọng yếu của Provider và Merchant.',
+      'Thiết kế và triển khai kiến trúc Vue micro-frontend cho hệ thống Tool Console phục vụ vận hành và quản trị tập trung.',
+      'Triển khai luồng CDC (Change Data Capture) đồng bộ dữ liệu real-time từ các sản phẩm vào StarRocks Data Warehouse phục vụ hệ thống BI (Business Intelligence) với độ trễ thấp.',
+      'Vận hành và tối ưu hạ tầng cơ sở dữ liệu phân tán (PostgreSQL, MySQL, StarRocks) trên nền tảng Google Cloud Platform (GCP) và Kubernetes (K8S).'
+    ],
+    metrics: [
+      { label: 'Core Services & SDKs', value: '6 Services & 3 SDKs' },
+      { label: 'BI Data Warehouse', value: 'CDC -> StarRocks' },
+      { label: 'Hạ tầng Cloud', value: 'GCP + K8S' }
+    ],
+    techStack: [
+      'Java 17',
+      'Spring Boot',
+      'Vue 3 Micro-frontend',
+      'StarRocks',
+      'CDC Pipeline',
+      'PostgreSQL',
+      'MySQL',
+      'Google Cloud (GCP)',
+      'Kubernetes (K8S)',
+      'Redis',
+      'RESTful APIs'
+    ]
+  },
+  {
+    id: 'evotek',
+    role: 'Middle Full-Stack Developer & Team Lead',
+    company: 'Công ty Cổ phần Công nghệ Evotek Việt Nam',
+    period: '01/2021 - 09/2024',
+    location: 'Hà Nội',
+    badge: 'Team Lead & Full-Stack',
+    badgeColor: 'text-blue-400 bg-blue-500/10 border-blue-500/20 shadow-blue-500/10',
+    isCurrent: false,
+    type: 'work',
+    nodeColor: 'border-blue-400 text-blue-400 shadow-blue-500/30',
+    accentGradient: 'from-blue-500/10 via-indigo-500/5 to-transparent',
+    borderHover: 'hover:border-blue-500/40',
+    bullets: [
+      'Thúc đẩy cải tiến kỹ thuật, định hướng giải pháp và dẫn dắt các nhóm phát triển từ 2 đến 15 thành viên trong các dự án quy mô ngân hàng, fintech và viễn thông.',
+      'Thiết kế kiến trúc hệ thống phân tán Spring Boot Microservices, áp dụng nguyên lý Domain-Driven Design (DDD) và kiến trúc phân tách đọc-ghi CQRS.',
+      'Xây dựng ứng dụng Web Frontend hiện đại bằng Angular 16+, React và Vue 3 theo mô hình Micro-frontend, tối ưu hoá hiệu năng và khả năng tái sử dụng component.',
+      'Quản trị và tối ưu đa dạng cơ sở dữ liệu: PostgreSQL, MySQL, Oracle Database, NoSQL, Redis caching và message broker (Kafka, RabbitMQ).',
+      'Thiết lập toàn diện pipeline tự động hóa CI/CD với Jenkins, container hóa dịch vụ với Docker và triển khai điều phối trên Kubernetes (K8S).',
+      'Vinh dự nhận 2 danh hiệu danh giá của công ty: "Nhân viên triển vọng 2022" và "Nhân viên xuất sắc 2024".'
+    ],
+    metrics: [
+      { label: 'Quy mô đội ngũ', value: 'Lead 2 - 15 Devs' },
+      { label: 'Giải thưởng nội bộ', value: 'Nhân viên Xuất sắc 2024' },
+      { label: 'Khách hàng tiêu biểu', value: 'VIB, MB-AMC, Viettel' }
+    ],
+    enterpriseProjects: [
+      {
+        name: 'Tikop - Đầu tư tích luỹ',
+        client: 'Fintech (06/2024 - 09/2024)',
+        role: 'Full-Stack Developer',
+        tech: 'Spring Boot, PostgreSQL, Kafka, Redis, Vue 3 MFE, K8S',
+        impact: 'Phát triển các tính năng lõi: Auth, eKYC, OTP, eContract, thu hộ & chi hộ tự động.'
+      },
+      {
+        name: 'VIB Smart Shareholder',
+        client: 'Ngân hàng Quốc tế VIB (10/2023 - 06/2024)',
+        role: 'Leader, Full-Stack & DevOps (Team 7)',
+        tech: 'Spring Boot, Angular 16, MFE, K8S, Redis, JMeter',
+        impact: 'Kiến trúc DDD/CQRS, kiểm thử tải cao JMeter và triển khai hệ thống an toàn ngân hàng.'
+      },
+      {
+        name: 'MB-AMC Building Management',
+        client: 'Ngân hàng Quân đội MB (10/2021 - 10/2023)',
+        role: 'Front-End Leader & Full-Stack (Team 30)',
+        tech: 'Spring Boot, Angular, Oracle, Docker, K8S',
+        impact: 'Quản lý toàn diện tài sản và số hóa quy trình vận hành chuỗi tòa nhà tập trung.'
+      },
+      {
+        name: 'Open City & Mytel Pay Adaptor',
+        client: 'Evo SmartCity & Viettel Software',
+        role: 'Front-End Leader & Back-End Dev',
+        tech: 'Spring Boot, Oracle, Angular 16, BPMN, Message Queue',
+        impact: 'Cổng kết nối thanh toán thích ứng viễn thông và nền tảng số hóa quản trị đô thị.'
+      }
+    ],
+    techStack: [
+      'Java 17',
+      'Spring Boot',
+      'Microservices',
+      'DDD & CQRS',
+      'Angular 16+',
+      'React',
+      'Vue 3',
+      'Oracle DB',
+      'PostgreSQL',
+      'Kafka',
+      'RabbitMQ',
+      'Redis',
+      'Docker',
+      'Kubernetes',
+      'Jenkins CI/CD'
+    ]
+  },
+  {
+    id: 'fpt',
+    role: 'Cử nhân CNTT - Ứng dụng Phần mềm',
+    company: 'FPT Education',
+    period: '08/2019 - 05/2021',
+    location: 'Hà Nội',
+    badge: 'Education & Foundation',
+    badgeColor: 'text-amber-400 bg-amber-500/10 border-amber-500/20 shadow-amber-500/10',
+    isCurrent: false,
+    type: 'education',
+    nodeColor: 'border-amber-400 text-amber-400 shadow-amber-500/30',
+    accentGradient: 'from-amber-500/10 via-orange-500/5 to-transparent',
+    borderHover: 'hover:border-amber-500/40',
+    bullets: [
+      'Được đào tạo bài bản và chuyên sâu về cấu trúc dữ liệu, giải thuật nâng cao, lập trình hướng đối tượng (OOP), các nguyên lý SOLID và Clean Architecture.',
+      'Xuất sắc 2 lần liên tiếp đạt danh hiệu "Ong Vàng FPT" — danh hiệu danh giá nhất vinh danh sinh viên có thành tích học tập và rèn luyện đứng đầu toàn khóa.',
+      'Xây dựng nền tảng tư duy phân tích hệ thống độc lập, khả năng làm chủ công nghệ mới nhanh chóng và kỹ năng hợp tác dự án chuyên nghiệp.'
+    ],
+    metrics: [
+      { label: 'Thành tích xuất sắc', value: '2 Lần Đạt Ong Vàng' },
+      { label: 'Chuyên ngành', value: 'Ứng dụng Phần mềm' },
+      { label: 'Tốt nghiệp', value: 'Cử nhân CNTT' }
+    ],
+    techStack: [
+      'Java',
+      'OOP Principles',
+      'SOLID Design',
+      'Data Structures & Algorithms',
+      'Design Patterns',
+      'SQL & RDBMS',
+      'Software Engineering'
+    ]
+  }
+];
+---
+
+<section id="experience" class="py-20 md:py-28 relative overflow-hidden">
+  <!-- Subtle ambient decorative glow -->
+  <div class="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-indigo-600/[0.04] rounded-full blur-[140px]" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute bottom-1/4 right-10 w-96 h-96 bg-blue-500/[0.03] rounded-full blur-3xl" aria-hidden="true"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-500/20 bg-indigo-500/[0.06] text-indigo-400 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm shadow-indigo-500/10">
+        <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.069m7.5 0a48.667 48.667 0 00-7.5 0" />
+        </svg>
+        <span>Career Journey</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+        Kinh nghiệm thực chiến & Hành trình
+      </h2>
+      <p class="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+        Hơn 5 năm đồng hành xây dựng hệ thống phần mềm doanh nghiệp chịu tải cao, từ kỹ sư Platform-core, Team Lead kỹ thuật đến các nền tảng số hóa ngân hàng và fintech.
+      </p>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="relative">
+      <!-- Continuous Vertical Timeline Spine -->
+      <div
+        class="absolute left-4 sm:left-6 md:left-8 top-4 bottom-8 w-[2px] bg-gradient-to-b from-cyan-400 via-blue-500/50 to-slate-800 pointer-events-none"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Experience Items -->
+      <div class="space-y-12 sm:space-y-16">
+        {experiences.map((exp) => (
+          <div class="relative pl-12 sm:pl-16 md:pl-20 group">
+            <!-- Timeline Marker Node -->
+            <div
+              class={`absolute left-4 sm:left-6 md:left-8 -translate-x-1/2 top-4 w-9 h-9 rounded-full bg-[#080d19] border-2 ${exp.nodeColor} flex items-center justify-center z-10 shadow-lg transition-transform duration-300 group-hover:scale-110`}
+            >
+              {exp.isCurrent && (
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-40"></span>
+              )}
+              {exp.type === 'education' ? (
+                <!-- Graduation Cap Icon -->
+                <svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
+                </svg>
+              ) : exp.id === 'techlab' ? (
+                <!-- Platform / Server Icon -->
+                <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.75 5.1a3 3 0 012.4-1.1h7.7a3 3 0 012.4 1.1l2.1 3.45a4.5 4.5 0 01.9 2.7" />
+                </svg>
+              ) : (
+                <!-- Team Lead / Users Icon -->
+                <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                </svg>
+              )}
+            </div>
+
+            <!-- Glassmorphic Card Container -->
+            <div
+              class={`glass-panel glow-hover relative rounded-2xl p-6 sm:p-8 border border-white/[0.08] ${exp.borderHover} bg-[#0b101c]/80 backdrop-blur-md transition-all duration-300 shadow-xl`}
+            >
+              <!-- Subtle card background gradient -->
+              <div
+                class={`absolute inset-0 bg-gradient-to-br ${exp.accentGradient} opacity-50 rounded-2xl pointer-events-none transition-opacity duration-300 group-hover:opacity-100`}
+                aria-hidden="true"
+              ></div>
+
+              <div class="relative z-10">
+                <!-- Top Meta Row: Period & Badge -->
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border ${exp.badgeColor}`}
+                    >
+                      <span>{exp.badge}</span>
+                    </span>
+                    {exp.isCurrent && (
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm shadow-emerald-500/10">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Đang làm việc</span>
+                      </span>
+                    )}
+                  </div>
+
+                  <!-- Date Range Badge -->
+                  <div class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-800/60 border border-white/[0.06] px-3 py-1 rounded-lg">
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.253 3H3.75m16.5 0v13.5A2.25 2.25 0 0118 21H6a2.25 2.25 0 01-2.25-2.25V6.75m16.5 0H3.75" />
+                    </svg>
+                    <span>{exp.period}</span>
+                  </div>
+                </div>
+
+                <!-- Role & Company Headings -->
+                <div class="mb-5">
+                  <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-blue-300 transition-colors">
+                    {exp.role}
+                  </h3>
+                  <div class="flex flex-wrap items-center gap-2 text-slate-400 text-sm sm:text-base mt-1">
+                    <span class="font-medium text-slate-200">{exp.company}</span>
+                    <span class="text-slate-600" aria-hidden="true">•</span>
+                    <span class="inline-flex items-center gap-1 text-xs text-slate-400">
+                      <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                      </svg>
+                      {exp.location}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Highlight Metrics Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 p-3.5 rounded-xl bg-black/25 border border-white/[0.04]">
+                  {exp.metrics.map((m) => (
+                    <div class="flex flex-col">
+                      <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">{m.label}</span>
+                      <span class="text-sm font-semibold text-white tracking-tight mt-0.5">{m.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Detailed Responsibilities / Bullet Points -->
+                <div class="space-y-2.5 mb-6">
+                  {exp.bullets.map((bullet) => (
+                    <div class="flex items-start gap-2.5 text-sm text-slate-300 leading-relaxed">
+                      <svg
+                        class="w-4 h-4 text-blue-400 shrink-0 mt-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Enterprise Projects Sub-Section (if present) -->
+                {exp.enterpriseProjects && exp.enterpriseProjects.length > 0 && (
+                  <div class="mb-6 pt-5 border-t border-white/[0.06]">
+                    <div class="flex items-center gap-2 mb-3">
+                      <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                      </svg>
+                      <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                        Dự án Enterprise tiêu biểu đã triển khai:
+                      </h4>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {exp.enterpriseProjects.map((proj) => (
+                        <div class="p-3 rounded-xl bg-slate-900/40 border border-white/[0.04] hover:border-white/[0.1] transition-colors">
+                          <div class="flex items-center justify-between gap-2 mb-1">
+                            <span class="text-sm font-semibold text-white tracking-tight">{proj.name}</span>
+                            <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20 shrink-0">
+                              {proj.role}
+                            </span>
+                          </div>
+                          <p class="text-xs text-slate-400 mb-1.5">{proj.impact}</p>
+                          <div class="text-[11px] font-mono text-slate-500">
+                            {proj.tech}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <!-- Tech Stack Pills -->
+                <div class="pt-5 border-t border-white/[0.06]">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                      Công nghệ sử dụng & Hệ thống
+                    </span>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    {exp.techStack.map((tech) => (
+                      <span class="px-2.5 py-1 text-xs font-mono rounded-lg bg-slate-800/50 text-slate-300 border border-white/[0.06] hover:border-blue-400/40 hover:text-white transition-colors">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
