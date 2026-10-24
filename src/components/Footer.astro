@@ -1,0 +1,75 @@
+---
+// Footer.astro - Modern Dark Glassmorphic Footer for Huy NQ Portfolio
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/[0.08] bg-[#06090f] text-slate-400 py-12 relative overflow-hidden">
+  <!-- Subtle ambient decorative glow at bottom -->
+  <div class="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-blue-600/10 rounded-full blur-3xl"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center pb-8 border-b border-white/[0.06]">
+      <!-- Brand & Subdomain badge -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-xs font-black text-white shadow-md shadow-blue-500/20">
+            HN
+          </div>
+          <span class="font-bold text-white text-base">Huy NQ</span>
+        </div>
+        <p class="text-xs text-slate-400 max-w-xs leading-relaxed">
+          Backend & Full-Stack Software Engineer. Xây dựng hệ thống hiệu năng cao, kiến trúc ổn định và giải pháp mở rộng.
+        </p>
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+          </svg>
+          <span>huynq.is-a.dev</span>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Links -->
+      <div class="flex flex-wrap gap-x-6 gap-y-2 md:justify-center text-sm font-medium">
+        <a href="#about" class="hover:text-white transition-colors">Giới thiệu</a>
+        <a href="#skills" class="hover:text-white transition-colors">Kỹ năng</a>
+        <a href="#projects" class="hover:text-white transition-colors">Dự án</a>
+        <a href="#contact" class="hover:text-white transition-colors">Liên hệ</a>
+      </div>
+
+      <!-- Social & Contact Links -->
+      <div class="flex md:justify-end items-center gap-3">
+        <a
+          href="https://github.com/huynq11019"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-slate-500 transition-all duration-200"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a
+          href="mailto:huynq1808@gmail.com"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-slate-500 transition-all duration-200"
+        >
+          <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          <span>huynq1808@gmail.com</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Attribution & Copyright -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>© {currentYear} Huy NQ. All rights reserved.</p>
+      <p class="flex items-center gap-1.5">
+        <span>Thiết kế & phát triển với</span>
+        <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition-colors underline underline-offset-2">Astro</a>
+        <span>&</span>
+        <span class="text-slate-400 font-medium">Taste-Skill</span>
+      </p>
+    </div>
+  </div>
+</footer>

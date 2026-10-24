@@ -1,0 +1,32 @@
+---
+// index.astro - Landing Page for Huy NQ Portfolio
+import Layout from '../layouts/Layout.astro';
+import Spotlight from '../components/Spotlight.astro';
+import Hero from '../components/Hero.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+
+const pageTitle = "Huy NQ | Backend & Full-Stack Software Engineer";
+const pageDescription = "Portfolio của Nguyễn Quang Huy (Huy NQ) - Kỹ sư phần mềm chuyên sâu Java, Spring Boot, Microservices, Caching, Cloud và Frontend hiện đại.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Ambient Spotlight follows cursor for modern dark interactive glow -->
+  <Spotlight />
+
+  <!-- Anchor for #about navigation smoothly pointing to top intro -->
+  <div id="about" class="scroll-mt-24" aria-hidden="true"></div>
+
+  <!-- Hero Section with Typewriter & Architecture Code Showcase -->
+  <Hero />
+
+  <!-- Core Technical Skills Grid (Backend, Database & Cache, Frontend & Mobile, DevOps) -->
+  <Skills />
+
+  <!-- Featured Engineering Projects (conversion-plf, P2P-Chat-App, pose-guide) -->
+  <Projects />
+
+  <!-- Interactive Contact Section with 1-Click Email Copy & Direct Inquiries -->
+  <Contact />
+</Layout>

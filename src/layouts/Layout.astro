@@ -1,0 +1,65 @@
+---
+// Layout.astro - Main Layout with Header, Footer, SEO and Global Styles
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = 'Huy NQ | Backend & Full-Stack Software Engineer',
+  description = 'Portfolio cá nhân của Nguyễn Quang Huy (Huy NQ) - Kỹ sư phần mềm Backend & Full-Stack chuyên sâu về Java, Spring Boot, Microservices, Angular và hệ thống hiệu năng cao.',
+  canonicalURL = 'https://huynq.is-a.dev',
+} = Astro.props;
+
+const siteName = 'Huy NQ Portfolio';
+---
+
+<!doctype html>
+<html lang="vi" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Huy NQ (Nguyễn Quang Huy)" />
+    <meta name="keywords" content="Huy NQ, Nguyễn Quang Huy, Backend Engineer, Full-Stack Developer, Java, Spring Boot, Microservices, Angular, Software Engineer Vietnam" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#080c14" />
+  </head>
+  <body class="min-h-screen bg-[#080c14] text-slate-100 antialiased selection:bg-blue-500/30 selection:text-white flex flex-col justify-between relative overflow-x-hidden">
+    <!-- Header Navigation -->
+    <Header />
+
+    <!-- Main Content Container with spacing for fixed header -->
+    <main class="flex-grow pt-16">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+  </body>
+</html>

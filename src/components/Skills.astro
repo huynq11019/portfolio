@@ -1,0 +1,167 @@
+---
+// Skills.astro - Core Technical Skills Grid for Huy NQ Portfolio
+interface SkillCategory {
+  title: string;
+  icon: string;
+  gradient: string;
+  borderHover: string;
+  description: string;
+  skills: { name: string; focus: string; tag?: string }[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: 'Backend Architecture',
+    icon: 'server',
+    gradient: 'from-blue-500/10 via-indigo-500/5 to-transparent',
+    borderHover: 'group-hover:border-blue-500/40',
+    description: 'Thiết kế kiến trúc hướng dịch vụ, API hiệu năng cao và giải pháp backend an toàn, chuẩn mở rộng.',
+    skills: [
+      { name: 'Java', focus: '17+, Multithreading, OOP', tag: 'Core' },
+      { name: 'Spring Boot', focus: 'REST API, Spring Data, MVC', tag: 'Core' },
+      { name: 'Spring Security', focus: 'JWT, OAuth2, RBAC Auth', tag: 'Security' },
+      { name: 'Hibernate / JPA', focus: 'Query Tuning, ORM, Caching', tag: 'Data' },
+      { name: 'RESTful API', focus: 'OpenAPI, Webhooks, Versioning', tag: 'API' },
+      { name: 'Microservices', focus: 'Event-Driven, Service Architecture', tag: 'Architecture' },
+    ],
+  },
+  {
+    title: 'Database & Cache',
+    icon: 'database',
+    gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
+    borderHover: 'group-hover:border-emerald-500/40',
+    description: 'Mô hình hóa dữ liệu quan hệ, đánh index tối ưu truy vấn và giải pháp bộ nhớ đệm phân tán độ trễ thấp.',
+    skills: [
+      { name: 'PostgreSQL', focus: 'Indexing, EXPLAIN, Relations', tag: 'RDBMS' },
+      { name: 'MySQL', focus: 'Schema Design, Transactions, ACID', tag: 'RDBMS' },
+      { name: 'Redis', focus: 'Caching, Pub/Sub, Rate Limiting', tag: 'In-Memory' },
+      { name: 'Database Optimization', focus: 'Slow Query Log, Connection Pool', tag: 'Tuning' },
+    ],
+  },
+  {
+    title: 'Frontend & Mobile',
+    icon: 'device',
+    gradient: 'from-purple-500/10 via-indigo-500/5 to-transparent',
+    borderHover: 'group-hover:border-purple-500/40',
+    description: 'Xây dựng giao diện phản hồi nhanh, kiến trúc component module hóa và trải nghiệm đa nền tảng nhất quán.',
+    skills: [
+      { name: 'TypeScript', focus: 'Type System, Modern ECMAScript', tag: 'Language' },
+      { name: 'Angular', focus: 'Components, RxJS, NgRx, Services', tag: 'Framework' },
+      { name: 'Tailwind CSS', focus: 'Responsive Design, Glassmorphism', tag: 'UI/UX' },
+      { name: 'Flutter & Dart', focus: 'Cross-platform Mobile, State Mgmt', tag: 'Mobile' },
+    ],
+  },
+  {
+    title: 'DevOps & Infrastructure',
+    icon: 'cloud',
+    gradient: 'from-cyan-500/10 via-blue-500/5 to-transparent',
+    borderHover: 'group-hover:border-cyan-500/40',
+    description: 'Đóng gói ứng dụng containerized, tự động hóa quy trình CI/CD và triển khai ổn định trên máy chủ Linux.',
+    skills: [
+      { name: 'Docker', focus: 'Containerization, Multi-stage, Compose', tag: 'Containers' },
+      { name: 'Git & GitHub', focus: 'Git Flow, Semantic Versioning, PRs', tag: 'VCS' },
+      { name: 'GitHub Actions', focus: 'CI/CD Pipelines, Build Automation', tag: 'CI/CD' },
+      { name: 'Linux VPS', focus: 'Ubuntu/Debian, Systemd, Bash Scripting', tag: 'OS' },
+      { name: 'Nginx', focus: 'Reverse Proxy, SSL/TLS, Rate Limit', tag: 'Web Server' },
+    ],
+  },
+];
+---
+
+<section id="skills" class="py-20 md:py-28 relative overflow-hidden">
+  <!-- Subtle ambient decorative glow -->
+  <div class="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/[0.04] rounded-full blur-[140px]" aria-hidden="true"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/[0.06] text-blue-400 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm shadow-blue-500/10">
+        <svg class="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+        </svg>
+        <span>Technical Arsenal</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+        Năng lực công nghệ cốt lõi
+      </h2>
+      <p class="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+        Bộ kỹ năng thực chiến được áp dụng vào thiết kế hệ thống backend chịu tải, luồng dữ liệu an toàn và trải nghiệm ứng dụng hiện đại.
+      </p>
+    </div>
+
+    <!-- Skills 4-Card Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {skillCategories.map((cat) => (
+        <div class={`glass-panel glow-hover group relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 border border-white/[0.08] ${cat.borderHover} bg-[#0b101c]/80`}>
+          <!-- Top subtle category gradient highlight -->
+          <div class={`absolute inset-0 bg-gradient-to-br ${cat.gradient} opacity-50 rounded-2xl pointer-events-none transition-opacity duration-300 group-hover:opacity-100`}></div>
+
+          <div class="relative z-10">
+            <!-- Category Title & Icon -->
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-blue-400 group-hover:scale-105 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 transition-all duration-300 shadow-inner">
+                  {cat.icon === 'server' && (
+                    <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.75 5.1a3 3 0 012.4-1.1h7.7a3 3 0 012.4 1.1l2.1 3.45a4.5 4.5 0 01.9 2.7" />
+                    </svg>
+                  )}
+                  {cat.icon === 'database' && (
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                    </svg>
+                  )}
+                  {cat.icon === 'device' && (
+                    <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    </svg>
+                  )}
+                  {cat.icon === 'cloud' && (
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+                    </svg>
+                  )}
+                </div>
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                  {cat.title}
+                </h3>
+              </div>
+              <span class="text-xs font-mono text-slate-500 group-hover:text-slate-400 transition-colors">
+                {cat.skills.length} skills
+              </span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              {cat.description}
+            </p>
+
+            <!-- Skill Badges/Pills -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {cat.skills.map((skill) => (
+                <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.05] hover:border-blue-500/30 transition-all duration-200">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0 shadow-sm shadow-blue-400/50"></span>
+                    <div class="flex flex-col min-w-0">
+                      <span class="text-xs sm:text-sm font-semibold text-slate-200 truncate">
+                        {skill.name}
+                      </span>
+                      <span class="text-[10px] text-slate-400 font-mono truncate">
+                        {skill.focus}
+                      </span>
+                    </div>
+                  </div>
+                  {skill.tag && (
+                    <span class="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-white/[0.04] text-slate-400 shrink-0 border border-white/[0.05] ml-2">
+                      {skill.tag}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
