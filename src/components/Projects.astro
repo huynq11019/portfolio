@@ -6,7 +6,6 @@ interface EnterpriseProject {
   title: string;
   subtitle: string;
   client: string;
-  clientType: 'Fintech' | 'Ngân hàng' | 'Bất động sản / Quản lý tài sản' | 'Viễn thông';
   clientBadgeColor: string;
   period: string;
   role: string;
@@ -22,7 +21,6 @@ interface EnterpriseProject {
 
 interface OpenSourceProject {
   title: string;
-  repoName: string;
   category: string;
   badge: string;
   description: string;
@@ -38,7 +36,6 @@ const enterpriseProjects: EnterpriseProject[] = [
     title: 'Tikop – Đầu tư tích luỹ',
     subtitle: 'Nền tảng Tài chính số & Tích lũy Thông minh',
     client: 'Sản phẩm Fintech',
-    clientType: 'Fintech',
     clientBadgeColor: 'text-amber-400 bg-amber-400/[0.08] border-amber-400/20',
     period: '06/2024 - Hiện tại',
     role: 'Full-Stack Developer',
@@ -77,7 +74,6 @@ const enterpriseProjects: EnterpriseProject[] = [
     title: 'VIB Smart Shareholder',
     subtitle: 'Hệ thống Quản lý Đại hội Đồng Cổ đông Ngân hàng VIB',
     client: 'Ngân hàng Quốc tế VIB',
-    clientType: 'Ngân hàng',
     clientBadgeColor: 'text-blue-400 bg-blue-400/[0.08] border-blue-400/20',
     period: '10/2023 - 06/2024',
     role: 'Team Leader / DevOps / Full-Stack',
@@ -116,7 +112,6 @@ const enterpriseProjects: EnterpriseProject[] = [
     title: 'MB-AMC Building Management',
     subtitle: 'Nền tảng Quản trị & Vận hành Bất động sản Ngân hàng MB',
     client: 'Khách hàng MB-AMC',
-    clientType: 'Bất động sản / Quản lý tài sản',
     clientBadgeColor: 'text-purple-400 bg-purple-400/[0.08] border-purple-400/20',
     period: '10/2021 - 10/2023',
     role: 'Front-End Leader / Full-Stack Developer',
@@ -154,7 +149,6 @@ const enterpriseProjects: EnterpriseProject[] = [
     title: 'Mytel Pay Adaptor',
     subtitle: 'Cổng Thích ứng Giao dịch & Ví điện tử Viễn thông',
     client: 'Khách hàng Viettel Software',
-    clientType: 'Viễn thông',
     clientBadgeColor: 'text-emerald-400 bg-emerald-400/[0.08] border-emerald-400/20',
     period: '06/2022 - 09/2022',
     role: 'Back-End Developer',
@@ -190,7 +184,6 @@ const enterpriseProjects: EnterpriseProject[] = [
 const openSourceProjects: OpenSourceProject[] = [
   {
     title: 'Conversion Platform',
-    repoName: 'conversion-plf',
     category: 'Backend Microservice & Media Engine',
     badge: 'Microservice',
     description: 'Hệ thống dịch vụ backend chuyên biệt giải quyết bài toán chuyển đổi và tạo tài liệu PDF động từ template, nén và xử lý hình ảnh tối ưu hàng loạt, xuất file báo cáo Excel dung lượng lớn thông qua chuẩn RESTful API.',
@@ -209,7 +202,6 @@ const openSourceProjects: OpenSourceProject[] = [
   },
   {
     title: 'P2P Chat Application',
-    repoName: 'P2P-Chat-App',
     category: 'Real-time WebRTC & Mobile',
     badge: 'P2P Security',
     description: 'Nền tảng giao tiếp trực tiếp thời gian thực bảo mật cao dựa trên kiến trúc Peer-to-Peer. Sử dụng WebRTC và PeerJS để thiết lập kênh truyền dữ liệu trực tiếp giữa 2 thiết bị mà không trung chuyển qua cơ sở dữ liệu máy chủ trung gian.',
@@ -228,7 +220,6 @@ const openSourceProjects: OpenSourceProject[] = [
   },
   {
     title: 'Pose Guide AI',
-    repoName: 'pose-guide',
     category: 'On-Device Computer Vision & Mobile',
     badge: 'AI / Mobile',
     description: 'Ứng dụng di động đa nền tảng hỗ trợ người tập nhận diện và đánh giá tư thế thể chất theo thời gian thực. Ứng dụng mô hình Computer Vision / Pose Estimation chạy trực tiếp trên thiết bị (on-device) để phân tích góc khớp và đưa ra phản hồi tức thì.',

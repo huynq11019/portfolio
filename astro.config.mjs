@@ -18,6 +18,8 @@ function relativeAssets() {
             html = html.replace(/href="\/_astro\//g, 'href="./_astro/');
             html = html.replace(/src="\/_astro\//g, 'src="./_astro/');
             html = html.replace(/href="\/favicon\.svg"/g, 'href="./favicon.svg"');
+            html = html.replace(/href="\/cv\//g, 'href="./cv/');
+            html = html.replace(/src="\/cv\//g, 'src="./cv/');
             fs.writeFileSync(filePath, html, 'utf8');
           }
         }
