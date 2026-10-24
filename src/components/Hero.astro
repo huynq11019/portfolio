@@ -43,11 +43,11 @@
 
         <!-- Bio Paragraph -->
         <p class="text-base sm:text-lg text-slate-300/90 leading-relaxed mb-8 max-w-2xl font-normal">
-          Kỹ sư phần mềm với định hướng kiến trúc phân tán (distributed systems), tối ưu hóa luồng xử lý dữ liệu và xây dựng API backend độ trễ thấp, tính khả dụng cao. Kết hợp năng lực full-stack vững vàng với hệ sinh thái frontend hiện đại và tích hợp hạ tầng đám mây tin cậy.
+          Kỹ sư phần mềm với hơn 5 năm kinh nghiệm thực chiến phát triển hệ thống backend Java Spring Boot phân tán, tối ưu hiệu năng cao và micro-frontend (Vue/Angular). Từng dẫn dắt các nhóm kỹ thuật từ 2 đến 15 thành viên triển khai thành công nhiều dự án quy mô ngân hàng, fintech và viễn thông.
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto mb-8">
           <!-- Primary CTA: Khám phá dự án with gradient & glow -->
           <a
             href="#projects"
@@ -57,6 +57,19 @@
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
+          </a>
+
+          <!-- Download CV CTA: Direct PDF link -->
+          <a
+            href="/cv/Nguyen-Quang-Huy-CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-medium text-blue-300 border border-blue-500/30 bg-blue-500/[0.08] hover:bg-blue-500/15 hover:border-blue-400 hover:text-white backdrop-blur-md transition-all duration-200 w-full sm:w-auto"
+          >
+            <svg class="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            <span>Tải CV (PDF)</span>
           </a>
 
           <!-- Secondary CTA: Liên hệ hợp tác with glass style -->
@@ -69,6 +82,26 @@
             </svg>
             <span>Liên hệ hợp tác</span>
           </a>
+        </div>
+
+        <!-- Highlight Metrics Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/[0.08] w-full mb-6">
+          <div class="flex flex-col">
+            <span class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-mono">5+</span>
+            <span class="text-xs text-slate-400 font-medium">Năm kinh nghiệm</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-300 font-mono">15+</span>
+            <span class="text-xs text-slate-400 font-medium">Quy mô Lead nhóm</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300 font-mono">02</span>
+            <span class="text-xs text-slate-400 font-medium">Giải thưởng xuất sắc</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-300 font-mono">100%</span>
+            <span class="text-xs text-slate-400 font-medium">Testing & CI/CD K8s</span>
+          </div>
         </div>
 
         <!-- Tech Stack Highlights Pills -->
@@ -156,9 +189,9 @@
 
     const words = [
       "Java & Spring Boot",
-      "Microservices Architecture",
-      "High Performance APIs",
-      "Full-Stack & Cloud Solutions"
+      "Microservices & DDD",
+      "Kafka & High Concurrency",
+      "Cloud & DevOps"
     ];
 
     let wordIndex = 0;
